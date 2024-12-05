@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Prova.ViewModels"
+             x:Class="Prova.Views.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:WeatherViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            
+            <Entry
+                Placeholder="Digite o nome da cidade:"
+                Text="{Binding CityName}"
+                HorizontalOptions="FillAndExpand" />
+
+            <Button
+                Text="Buscar Clima"
+                Command="{Binding MostrarCommand}"
+                HorizontalOptions="FillAndExpand" />
+
+            <Label Text="Temperatura Atual:"
+            Style="{StaticResource SubHeadline}" />
+            <Label Text="{Binding Temp, StringFormat='{}{0}°C'}"
+            Style="{StaticResource Body}" />
+
+            <Label Text="Temperatura Máxima:"
+            Style="{StaticResource SubHeadline}" />
+            <Label Text="{Binding TempMax, StringFormat='{}{0}°C'}"
+            Style="{StaticResource Body}" />
+
+            <Label Text="Temperatura Mínima:"
+            Style="{StaticResource SubHeadline}" />
+            <Label Text="{Binding TempMin, StringFormat='{}{0}°C'}"
+            Style="{StaticResource Body}" />
+
+            <Label Text="Descrição:"
+            Style="{StaticResource SubHeadline}" />
+            <Label Text="{Binding Description}"
+            Style="{StaticResource Body}" />
+
+            <Label Text="Umidade:"
+            Style="{StaticResource SubHeadline}" />
+            <Label Text="{Binding Humidity}"
+            Style="{StaticResource Body}" />
+
+            <Label Text="Condição Principal:"
+            Style="{StaticResource SubHeadline}" />
+            <Label Text="{Binding Main}"
+            Style="{StaticResource Body}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
